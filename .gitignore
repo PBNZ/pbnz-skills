@@ -38,3 +38,8 @@ venv/
 # Build artifacts
 dist/
 build/
+
+# Overrides — repo-tracked files that a contributor's *global* gitignore might
+# otherwise match (e.g. a common `*private*` rule). Keep these negations so
+# these files can never be silently dropped from a commit.
+!scripts/check_no_private_contact.py
