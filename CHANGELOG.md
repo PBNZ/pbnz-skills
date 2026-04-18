@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-04-19
+
+### Changed
+
+- **`newton` plugin marked as deprecated.** Newton has moved to its own dedicated repository at [PBNZ/newton-skill](https://github.com/PBNZ/newton-skill), where it ships independently with its own release cadence, landing page, and analytics. The copy in this marketplace is frozen at v0.1.0 and will not receive further updates.
+  - Deprecation banners added to repository `README.md`, plugin `README.md`, and the skill body.
+  - Marketplace manifest description updated to flag the move; plugin description prefixed with `[DEPRECATED — moved to PBNZ/newton-skill]` and a `deprecated` tag added. The plugin entry itself is kept (rather than removed) because the marketplace validator requires a non-empty `plugins` array, and to keep the existing `/plugin install newton@pbnz-skills` path working for anyone who needs to pin to v0.1.0.
+- **Marketplace metadata version bumped to 0.2.0** to mark this housekeeping change.
+
 ## [0.1.0] — 2026-04-17
 
 ### Added
@@ -23,5 +32,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Release workflow (`.github/workflows/release.yml`) — on every `v*.*.*` tag push, creates the GitHub release and attaches every `SKILL.md` as a downloadable asset (e.g. `newton.SKILL.md`), so users on Claude.ai or Claude Desktop can install the skill with a single click.
 - GitHub Copilot custom instructions: a repo-wide file at `.github/copilot-instructions.md` and a path-scoped file at `.github/instructions/skill-files.instructions.md` that together scope Copilot code review away from prose and SKILL.md bodies and towards the JSON manifests, Actions workflows, and Python scripts where review actually adds value.
 
-[Unreleased]: https://github.com/PBNZ/pbnz-skills/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/PBNZ/pbnz-skills/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/PBNZ/pbnz-skills/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.1.0
