@@ -1,49 +1,38 @@
+> [!IMPORTANT]
+> **Newton has moved to its own repository: [PBNZ/newton-skill](https://github.com/PBNZ/newton-skill).**
+>
+> The copy of newton in this marketplace is **frozen at v0.1.0** and will not receive further updates. Please install from the new home — see the [newton-skill README](https://github.com/PBNZ/newton-skill#readme) for current install instructions across Claude Code, Cowork, Claude.ai, and the Claude API.
+
 # pbnz-skills
 
 A personal collection of [Agent Skills](https://agentskills.io) for Claude Code, Claude Cowork, Claude.ai, the Claude API, and other Agent-Skills-compatible tools.
 
-This repository is also a **plugin marketplace** for the Claude surfaces that support plugins (Claude Code and Cowork), so you can install everything here with a single command.
+This repository was originally a **plugin marketplace** hosting `newton`. As of 2026-04-19, newton has moved to its own dedicated repository ([PBNZ/newton-skill](https://github.com/PBNZ/newton-skill)) so it can ship independently with its own release cadence, landing page, and analytics. This marketplace is being kept alive as a placeholder for any future plugins, but currently hosts only the frozen v0.1.0 copy of newton.
 
 ## Contents
 
-| Plugin | Description | Skills |
+| Plugin | Status | Description |
 |---|---|---|
-| [`newton`](plugins/newton) | Reasoning and sparring partner mode — honest pushback, current-sources research, reuse-before-rebuild checks, and surgical edits. Opt-in by explicit invocation. | `newton` |
-
-More will land here over time. Each plugin is self-contained under `plugins/<name>/` and ships at least one skill under `plugins/<name>/skills/<skill>/SKILL.md`.
+| [`newton`](plugins/newton) | **Deprecated — moved to [PBNZ/newton-skill](https://github.com/PBNZ/newton-skill)** | Frozen at v0.1.0. Install from the new repo for ongoing updates. |
 
 ## Install
 
-### Claude Code
+### Newton (current)
 
-Add this repository as a marketplace, then install the plugin you want:
+Install Newton from its new home: **[PBNZ/newton-skill](https://github.com/PBNZ/newton-skill)**.
+
+### Newton (frozen v0.1.0 from this marketplace)
+
+If you specifically need the v0.1.0 snapshot from this marketplace — for example to pin to a known historical version — the original install paths still work:
 
 ```
 /plugin marketplace add PBNZ/pbnz-skills
 /plugin install newton@pbnz-skills
 ```
 
-Once installed, Claude Code will auto-discover the plugin's skills and load them on demand.
+The Claude.ai-compatible single-file download is still produced as a release asset on every tag: [`newton.SKILL.md`](https://github.com/PBNZ/pbnz-skills/releases/latest/download/newton.SKILL.md).
 
-### Claude Cowork
-
-Cowork runs inside the Claude desktop app and supports plugin marketplaces the same way Claude Code does. Add this repository as a marketplace through Cowork's plugin management and install `newton` from it. Cowork will then expose the skill automatically.
-
-### Claude.ai and Claude Desktop (without Cowork)
-
-For plain Claude.ai or the Claude desktop app outside of Cowork, upload the skill file directly through the **Skills** section of your Claude settings.
-
-**Download the latest Newton skill file:** [`newton.SKILL.md`](https://github.com/PBNZ/pbnz-skills/releases/latest/download/newton.SKILL.md) (served as a release asset — your browser will save the file instead of displaying it).
-
-If you prefer to grab it straight from the repository tree, the source file lives at `plugins/newton/skills/newton/SKILL.md`.
-
-### Claude API
-
-Register the skill through the [Skills API](https://docs.claude.com) using the same `SKILL.md` file.
-
-### Other Agent-Skills-compatible tools
-
-This repository's skills follow the open [Agent Skills standard](https://agentskills.io), so they work with any tool that supports the standard — including GitHub Copilot, Cursor, OpenAI Codex, Gemini CLI, Windsurf, and others. Point your tool's skill-ingestion mechanism at the relevant `SKILL.md` file.
+For all other use cases, prefer the new repo.
 
 ## Repository layout
 
@@ -52,17 +41,18 @@ This repository's skills follow the open [Agent Skills standard](https://agentsk
 ├── .claude-plugin/
 │   └── marketplace.json         # Claude Code marketplace manifest
 ├── plugins/
-│   └── <plugin>/
+│   └── newton/                  # Frozen — see PBNZ/newton-skill for current
 │       ├── .claude-plugin/
-│       │   └── plugin.json      # Plugin manifest
-│       ├── skills/
-│       │   └── <skill>/
-│       │       └── SKILL.md     # Skill definition (Agent Skills standard)
-│       └── README.md            # Plugin-level docs
+│       │   └── plugin.json
+│       ├── skills/newton/SKILL.md
+│       └── README.md
 ├── .github/
 │   ├── ISSUE_TEMPLATE/
 │   ├── PULL_REQUEST_TEMPLATE.md
-│   └── workflows/validate.yml
+│   └── workflows/
+│       ├── validate.yml
+│       └── release.yml
+├── scripts/                     # Validators
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
@@ -78,6 +68,8 @@ This marketplace and each plugin follow [Semantic Versioning](https://semver.org
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). All interactions in this project are governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+For Newton specifically, please open issues and pull requests against [PBNZ/newton-skill](https://github.com/PBNZ/newton-skill) — that's where active development lives.
 
 ## Security
 

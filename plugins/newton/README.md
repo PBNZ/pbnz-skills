@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **Newton has moved to its own repository: [PBNZ/newton-skill](https://github.com/PBNZ/newton-skill).**
+>
+> This copy is **frozen at v0.1.0** and will not receive further updates. For the current version, install from the new repo — see the [newton-skill README](https://github.com/PBNZ/newton-skill#readme) for install instructions across Claude Code, Cowork, Claude.ai, and the Claude API.
+
 # Newton
 
 Reasoning and sparring partner mode for Claude — rigorous, calibrated engagement on any topic. Honest pushback, current-sources research, reuse-before-rebuild checks, and surgical edits. Opt-in by design.
