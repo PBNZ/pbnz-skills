@@ -17,7 +17,7 @@ This channel is private, visible only to the maintainers and to GitHub's securit
 When reporting, please include as much of the following as you can:
 
 - A clear description of the issue and its potential impact.
-- The affected plugin or skill (for example, `plugins/newton`).
+- The affected part of the repository (for example, the marketplace manifest or repository tooling).
 - Steps to reproduce or a proof of concept.
 - Any suggested mitigation or fix, if you have one.
 
