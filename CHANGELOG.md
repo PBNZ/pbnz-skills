@@ -24,6 +24,7 @@ This is a breaking change for anyone currently installing Newton via `/plugin in
 - `.claude-plugin/marketplace.json` — `plugins` array emptied; marketplace `metadata.version` bumped `0.2.0` → `0.3.0`.
 - `scripts/validate_marketplace.py` — the `plugins must be a non-empty array` check relaxed to `plugins must be an array`. An empty marketplace is a coherent state (deprecation, between releases, deliberate pointer repository); the original non-empty check was too strict and would have made this release impossible to validate.
 - `.github/PULL_REQUEST_TEMPLATE.md`, `.github/ISSUE_TEMPLATE/bug_report.md` — removed the Newton-specific examples from the "affected plugin" placeholder. Generic examples now.
+- `.github/workflows/release.yml` — made asset collection robust to the no-`plugins/` and no-`SKILL.md` cases. The previous version assumed `plugins/` existed and that `release-assets/*.SKILL.md` would always glob to at least one file; with Newton gone, both assumptions broke and the v0.3.0 release run failed on the first attempt. The workflow now creates the GitHub release with whatever assets are present (zero or more), so a pointer-repo release tag is a valid release.
 
 ### Notes
 
