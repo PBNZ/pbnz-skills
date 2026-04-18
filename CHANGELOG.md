@@ -6,6 +6,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-04-19
+
+Newton has moved to its own dedicated repository, [`PBNZ/newton-skill`](https://github.com/PBNZ/newton-skill), with the custom install domain <https://newton.mystuffonline.org/>. This release removes Newton from `pbnz-skills` entirely and converts the repository into a pointer at its new home.
+
+This is a breaking change for anyone currently installing Newton via `/plugin install newton@pbnz-skills`. The top of `README.md` documents the migration path.
+
+### Removed
+
+- `plugins/newton/` tree — `plugin.json`, `SKILL.md`, and the plugin-level `README.md`. Newton's canonical home is now [`PBNZ/newton-skill`](https://github.com/PBNZ/newton-skill); this repository's copy was a duplicate and was being maintained in the wrong place (the attribution work that should have shipped with `newton-skill` v0.2.0 landed here as this repository's `0.2.0` release — see that entry for the incident the move corrects).
+- `NOTICE.md` — the Apache-2.0 attribution file existed solely to preserve upstream MIT attribution for material adapted into Newton's `SKILL.md`. With Newton gone, no third-party material remains in this repository that requires a `NOTICE`. The attribution chain (Andrej Karpathy → `multica-ai/andrej-karpathy-skills` by Jiayuan → PBNZ) has been ported verbatim to the canonical Newton repository's [`NOTICE.md`](https://github.com/PBNZ/newton-skill/blob/main/NOTICE.md) and travels with the skill from there.
+- `.github/skill-url-allowlist.txt`: `x.com` host entry and its explanatory comment block. The allowlist only exists to gate URLs in `SKILL.md` bodies, and `x.com` was listed only to permit Newton's Credits footer. With no `SKILL.md` files in this repository, the entry has no remaining referent.
+
+### Changed
+
+- `README.md` — rewritten as a pointer to `https://newton.mystuffonline.org/` with the migration command block at the top. The previous Contents table, multi-surface install instructions, and repository-layout section have been removed; they applied to a marketplace that carried a plugin, which this one no longer does.
+- `.claude-plugin/marketplace.json` — `plugins` array emptied; marketplace `metadata.version` bumped `0.2.0` → `0.3.0`.
+- `scripts/validate_marketplace.py` — the `plugins must be a non-empty array` check relaxed to `plugins must be an array`. An empty marketplace is a coherent state (deprecation, between releases, deliberate pointer repository); the original non-empty check was too strict and would have made this release impossible to validate.
+- `.github/PULL_REQUEST_TEMPLATE.md`, `.github/ISSUE_TEMPLATE/bug_report.md` — removed the Newton-specific examples from the "affected plugin" placeholder. Generic examples now.
+
+### Notes
+
+- The v0.2.0 GitHub release on this repository carries a deprecation banner pointing at `PBNZ/newton-skill` v0.2.1, which is where the same attribution work landed properly.
+- No `v0.3.0` plugin or skill is being published from this repository; the `0.3.0` tag exists to mark the removal event in the marketplace manifest history.
+
 ## [0.2.0] — 2026-04-19
 
 ### Added
@@ -38,6 +62,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Release workflow (`.github/workflows/release.yml`) — on every `v*.*.*` tag push, creates the GitHub release and attaches every `SKILL.md` as a downloadable asset (e.g. `newton.SKILL.md`), so users on Claude.ai or Claude Desktop can install the skill with a single click.
 - GitHub Copilot custom instructions: a repo-wide file at `.github/copilot-instructions.md` and a path-scoped file at `.github/instructions/skill-files.instructions.md` that together scope Copilot code review away from prose and SKILL.md bodies and towards the JSON manifests, Actions workflows, and Python scripts where review actually adds value.
 
-[Unreleased]: https://github.com/PBNZ/pbnz-skills/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/PBNZ/pbnz-skills/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.3.0
 [0.2.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.2.0
 [0.1.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.1.0

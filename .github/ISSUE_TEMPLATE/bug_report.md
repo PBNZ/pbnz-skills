@@ -12,7 +12,7 @@ assignees: ''
 
 ## Affected plugin or skill
 
-<!-- e.g. plugins/newton, the `newton` skill, or the top-level marketplace manifest -->
+<!-- e.g. the top-level marketplace manifest, a specific plugin, or repository tooling -->
 
 ## Claude surface
 

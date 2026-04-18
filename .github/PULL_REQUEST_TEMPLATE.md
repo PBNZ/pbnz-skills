@@ -15,7 +15,7 @@
 
 ## Affected plugin(s) / skill(s)
 
-<!-- e.g. plugins/newton or the newton skill -->
+<!-- e.g. the marketplace manifest, a specific plugin, or repository tooling -->
 
 ## Related issue
 
