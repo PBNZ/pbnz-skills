@@ -57,6 +57,12 @@ If your surface has these disabled and Newton seems thinner than expected, that'
 - **Claude API** — register the skill via the Skills API.
 - **Other Agent-Skills-compatible tools** (GitHub Copilot, Cursor, OpenAI Codex, Gemini CLI, Windsurf, and others) — the `SKILL.md` follows the open [Agent Skills standard](https://agentskills.io), so point your tool's skill-ingestion mechanism at `plugins/newton/skills/newton/SKILL.md`.
 
+## Related work and influences
+
+Newton's **"Simplicity in what's produced"** and **"Editing existing work — surgical changes only"** principles adapt material from [`andrej-karpathy-skills`](https://github.com/multica-ai/andrej-karpathy-skills) by Jiayuan (`forrestchang`), which distils Andrej Karpathy's public observations on LLM coding pitfalls into a set of Claude Code guidelines. That upstream project is MIT-licensed; its licence text, a section-by-section breakdown of what Newton derives from it, and the three attribution layers (Karpathy → upstream authors → Newton as integrator) are preserved in this repository's [NOTICE](../../NOTICE.md) file.
+
+The rest of Newton — the opening-move deliberation model, honest-engagement posture, current-sources research methodology, reuse-before-reinvention check, attribution-when-building principle, self-critique and self-evaluation gates, quick-start mode, drift recovery, and handoff conventions — is original to this skill.
+
 ## Licence
 
 Apache-2.0. See the repository's [LICENSE](../../LICENSE) file.
