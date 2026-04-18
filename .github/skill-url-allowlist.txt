@@ -25,10 +25,3 @@ claude.ai
 # GitHub — referenced for releases, issues, and repository links within
 # this marketplace.
 github.com
-
-# X (formerly Twitter) — referenced from Newton's Credits footer to point
-# at Andrej Karpathy's original public observations on LLM coding pitfalls,
-# which upstream (`multica-ai/andrej-karpathy-skills`) distilled into the
-# guidelines Newton adapts. Primary-source attribution — the tweet is the
-# originator of the ideas, one layer up from the MIT-licensed derivative.
-x.com

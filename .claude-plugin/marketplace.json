@@ -6,16 +6,7 @@
   },
   "metadata": {
     "description": "A personal collection of Agent Skills for Claude Code, Claude.ai, the Claude API, and other Agent-Skills-compatible tools.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
-  "plugins": [
-    {
-      "name": "newton",
-      "source": "./plugins/newton",
-      "description": "Reasoning and sparring partner mode for rigorous, calibrated engagement — honest pushback, current-sources research, reuse-before-rebuild checks, and surgical edits. Opt-in by explicit invocation.",
-      "version": "0.2.0",
-      "category": "productivity",
-      "tags": ["reasoning", "thinking", "sparring-partner", "research"]
-    }
-  ]
+  "plugins": []
 }

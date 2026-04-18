@@ -51,8 +51,8 @@ def main() -> None:
         fail("missing owner.name")
 
     plugins = data.get("plugins")
-    if not isinstance(plugins, list) or not plugins:
-        fail("'plugins' must be a non-empty array")
+    if not isinstance(plugins, list):
+        fail("'plugins' must be an array")
 
     seen_names: set[str] = set()
     for i, plugin in enumerate(plugins):
