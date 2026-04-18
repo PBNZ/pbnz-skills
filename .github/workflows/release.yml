@@ -31,34 +31,55 @@ jobs:
           fi
 
       - name: Collect SKILL.md files
+        id: collect
         run: |
           set -euo pipefail
           mkdir -p release-assets
-          while IFS= read -r path; do
-            plugin=$(echo "$path" | cut -d'/' -f2)
-            skill=$(echo "$path" | cut -d'/' -f4)
-            if [ "$plugin" = "$skill" ]; then
-              dest="${plugin}.SKILL.md"
-            else
-              dest="${plugin}.${skill}.SKILL.md"
-            fi
-            cp "$path" "release-assets/${dest}"
-          done < <(find plugins -type f -name SKILL.md | sort)
-          echo "Prepared assets:"
-          ls -la release-assets/
+          if [ -d plugins ]; then
+            while IFS= read -r path; do
+              plugin=$(echo "$path" | cut -d'/' -f2)
+              skill=$(echo "$path" | cut -d'/' -f4)
+              if [ "$plugin" = "$skill" ]; then
+                dest="${plugin}.SKILL.md"
+              else
+                dest="${plugin}.${skill}.SKILL.md"
+              fi
+              cp "$path" "release-assets/${dest}"
+            done < <(find plugins -type f -name SKILL.md | sort)
+          fi
+          count=$(find release-assets -maxdepth 1 -name '*.SKILL.md' | wc -l)
+          echo "count=${count}" >> "$GITHUB_OUTPUT"
+          echo "Prepared ${count} asset(s):"
+          ls -la release-assets/ || true
 
       - name: Create or update release
         env:
           GH_TOKEN: ${{ github.token }}
+          ASSET_COUNT: ${{ steps.collect.outputs.count }}
         run: |
           set -euo pipefail
           TAG="${{ steps.tag.outputs.name }}"
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Release $TAG already exists — uploading assets with --clobber"
-            gh release upload "$TAG" release-assets/*.SKILL.md --clobber
+          if [ "${ASSET_COUNT}" -gt 0 ]; then
+            ASSETS=(release-assets/*.SKILL.md)
           else
-            echo "Creating release $TAG"
-            gh release create "$TAG" release-assets/*.SKILL.md \
-              --title "$TAG" \
-              --generate-notes
+            ASSETS=()
+          fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            if [ "${#ASSETS[@]}" -gt 0 ]; then
+              echo "Release $TAG already exists — uploading ${#ASSETS[@]} asset(s) with --clobber"
+              gh release upload "$TAG" "${ASSETS[@]}" --clobber
+            else
+              echo "Release $TAG already exists and there are no SKILL.md assets to attach — nothing to do"
+            fi
+          else
+            echo "Creating release $TAG with ${#ASSETS[@]} asset(s)"
+            if [ "${#ASSETS[@]}" -gt 0 ]; then
+              gh release create "$TAG" "${ASSETS[@]}" \
+                --title "$TAG" \
+                --generate-notes
+            else
+              gh release create "$TAG" \
+                --title "$TAG" \
+                --generate-notes
+            fi
           fi
