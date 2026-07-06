@@ -67,6 +67,12 @@ Match the name in the frontmatter to the skill directory name. Keep the descript
 
 The manifest must validate against the Claude Code plugin schema. CI will check this on every PR.
 
+Those steps apply to a plugin whose content lives in this repository. A plugin with its own
+canonical repository is instead listed as a **reference entry**: add it to
+`.claude-plugin/marketplace.json` with an object `source` (e.g. `git-subdir` with the repo `url`
+and the plugin's `path` inside it) and no `plugins/` tree here. Content changes for a referenced
+plugin belong in its canonical repository, not in this one.
+
 ## Validation
 
 The repository has a validation workflow that runs on every PR. It checks:
