@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- `newton` is listed in the marketplace as a **reference entry** — a `git-subdir` source pointing
+  at `plugins/newton` in [`PBNZ/newton-skill`](https://github.com/PBNZ/newton-skill), the plugin's
+  canonical home. This restores the `/plugin install newton@pbnz-skills` install path that 0.3.0
+  removed — now serving the current canonical content instead of a frozen copy.
+
+### Changed
+
+- `README.md`: the Newton banner now reflects the reference listing (installable from either
+  marketplace; pre-0.3.0 copies are frozen — update or reinstall), the plugins table lists
+  `newton`, and the "Newton is the exception" note is gone.
+
 ## [0.4.0] — 2026-07-06
 
 ### Added

@@ -18,6 +18,16 @@
       },
       "description": "Scaffold standard-compliant repos (/new-repo) and apply the RepoKit repo standard while you work. Canonical home: PBNZ/repo-kit.",
       "category": "productivity"
+    },
+    {
+      "name": "newton",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PBNZ/newton-skill.git",
+        "path": "plugins/newton"
+      },
+      "description": "Reasoning and sparring partner mode for rigorous, calibrated engagement — honest pushback, current-sources research, reuse-before-rebuild checks, and surgical edits. Canonical home: PBNZ/newton-skill.",
+      "category": "productivity"
     }
   ]
 }
