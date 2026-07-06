@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.5.0] — 2026-07-06
+
 ### Added
 
 - `newton` is listed in the marketplace as a **reference entry** — a `git-subdir` source pointing
@@ -94,7 +96,8 @@ This is a breaking change for anyone currently installing Newton via `/plugin in
 - Release workflow (`.github/workflows/release.yml`) — on every `v*.*.*` tag push, creates the GitHub release and attaches every `SKILL.md` as a downloadable asset (e.g. `newton.SKILL.md`), so users on Claude.ai or Claude Desktop can install the skill with a single click.
 - GitHub Copilot custom instructions: a repo-wide file at `.github/copilot-instructions.md` and a path-scoped file at `.github/instructions/skill-files.instructions.md` that together scope Copilot code review away from prose and SKILL.md bodies and towards the JSON manifests, Actions workflows, and Python scripts where review actually adds value.
 
-[Unreleased]: https://github.com/PBNZ/pbnz-skills/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/PBNZ/pbnz-skills/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.5.0
 [0.4.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.4.0
 [0.3.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.3.0
 [0.2.0]: https://github.com/PBNZ/pbnz-skills/releases/tag/v0.2.0
