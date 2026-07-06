@@ -5,7 +5,8 @@ Checks:
 - The file exists and is valid JSON.
 - Required fields are present: name, owner.name, plugins (array).
 - Each plugin entry has name and source.
-- Each plugin's source path exists on disk.
+- Each plugin's source path exists on disk (relative-path sources), or the
+  source object carries the fields its type requires (reference entries).
 - Each plugin name is unique.
 - The marketplace name is not in the reserved-prefix list.
 """
@@ -68,14 +69,31 @@ def main() -> None:
         seen_names.add(pname)
 
         source = plugin.get("source")
-        if not isinstance(source, str) or not source:
-            fail(f"plugins[{i}].source is required")
-
-        # Local source paths are expected to resolve under the repo.
-        if source.startswith("./") or source.startswith("../"):
-            resolved = (REPO_ROOT / source).resolve()
-            if not resolved.exists():
-                fail(f"plugins[{i}].source '{source}' does not exist on disk")
+        if isinstance(source, str) and source:
+            # Local source paths are expected to resolve under the repo.
+            if source.startswith("./") or source.startswith("../"):
+                resolved = (REPO_ROOT / source).resolve()
+                if not resolved.exists():
+                    fail(f"plugins[{i}].source '{source}' does not exist on disk")
+        elif isinstance(source, dict):
+            # Reference entry: the plugin lives in its own canonical repo.
+            # Require the fields each documented source type needs.
+            required_by_type = {
+                "github": ("repo",),
+                "git-subdir": ("url", "path"),
+                "git": ("url",),
+            }
+            stype = source.get("source")
+            if stype not in required_by_type:
+                fail(
+                    f"plugins[{i}].source.source must be one of "
+                    f"{sorted(required_by_type)} for object sources"
+                )
+            for field in required_by_type[stype]:
+                if not isinstance(source.get(field), str) or not source.get(field):
+                    fail(f"plugins[{i}].source.{field} is required for '{stype}' sources")
+        else:
+            fail(f"plugins[{i}].source is required (relative path or source object)")
 
     print(f"OK  {MARKETPLACE_PATH.relative_to(REPO_ROOT)} — {len(plugins)} plugin(s)")
 

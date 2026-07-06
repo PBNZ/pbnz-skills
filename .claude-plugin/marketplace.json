@@ -8,5 +8,16 @@
     "description": "A personal collection of Agent Skills for Claude Code, Claude.ai, the Claude API, and other Agent-Skills-compatible tools.",
     "version": "0.3.0"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "repokit",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PBNZ/repo-kit.git",
+        "path": "plugins/repokit"
+      },
+      "description": "Scaffold standard-compliant repos (/new-repo) and apply the RepoKit repo standard while you work. Canonical home: PBNZ/repo-kit.",
+      "category": "productivity"
+    }
+  ]
 }

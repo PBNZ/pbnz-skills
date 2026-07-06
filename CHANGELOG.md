@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- `repokit` is listed in the marketplace as a **reference entry** — a `git-subdir` source pointing
+  at `plugins/repokit` in [`PBNZ/repo-kit`](https://github.com/PBNZ/repo-kit), the plugin's
+  canonical home. No plugin content is copied into this repository. Install:
+  `/plugin marketplace add PBNZ/pbnz-skills` then `/plugin install repokit@pbnz-skills`.
+
+### Changed
+
+- `scripts/validate_marketplace.py` accepts object-form plugin sources (`github`, `git-subdir`,
+  `git`) alongside relative-path strings, checking the fields each source type requires.
+- `README.md` and `CONTRIBUTING.md` reframed to match: this marketplace is a directory of PBNZ
+  plugins whose canonical homes are their own repositories. The 0.3.0 "not accepting new plugins"
+  wording targeted content-carrying plugins (the Newton lesson); reference entries keep exactly
+  one maintained home per plugin.
+
 ## [0.3.0] — 2026-04-19
 
 Newton has moved to its own dedicated repository, [`PBNZ/newton-skill`](https://github.com/PBNZ/newton-skill), with the custom install domain <https://newton.mystuffonline.org/>. This release removes Newton from `pbnz-skills` entirely and converts the repository into a pointer at its new home.
