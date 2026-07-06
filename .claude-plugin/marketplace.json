@@ -6,9 +6,19 @@
   },
   "metadata": {
     "description": "A personal collection of Agent Skills for Claude Code, Claude.ai, the Claude API, and other Agent-Skills-compatible tools.",
-    "version": "0.5.0"
+    "version": "0.6.0"
   },
   "plugins": [
+    {
+      "name": "watch-local",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/PBNZ/watch-local.git",
+        "path": "plugins/watch-local"
+      },
+      "description": "Give Claude a video input — fully local. /watch downloads, extracts frames, and transcribes on your NVIDIA GPU via Docker. No cloud APIs. Windows 11 + NVIDIA GPU + Docker Desktop only. Canonical home: PBNZ/watch-local.",
+      "category": "productivity"
+    },
     {
       "name": "repokit",
       "source": {

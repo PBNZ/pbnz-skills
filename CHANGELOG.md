@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.6.0] — 2026-07-06
+
+### Added
+
+- `watch-local` is listed in the marketplace as a **reference entry** — a `git-subdir` source
+  pointing at `plugins/watch-local` in [`PBNZ/watch-local`](https://github.com/PBNZ/watch-local),
+  the plugin's canonical home (public as of `v0.3.0-rc.2`). Fully local video watching for Claude
+  Code: yt-dlp + ffmpeg + faster-whisper on the user's NVIDIA GPU via Docker. Windows 11 only;
+  pre-release. Install: `/plugin install watch-local@pbnz-skills`.
+
 ## [0.5.0] — 2026-07-06
 
 ### Added
