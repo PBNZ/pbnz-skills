@@ -22,7 +22,7 @@ those install paths working.
 
 | Plugin | What it does | Canonical home |
 |--------|--------------|----------------|
-| `watch-local` | Give Claude a video input — `/watch` downloads, extracts frames, and transcribes fully locally on your NVIDIA GPU via Docker (Windows 11 only; pre-release, vibe-coded for personal use) | [`PBNZ/watch-local`](https://github.com/PBNZ/watch-local) |
+| `watch-local` | Give Claude a video input — `/watch` downloads, extracts frames, and transcribes fully locally via Docker; auto-detects your NVIDIA GPU (NVDEC decode + CUDA whisper) with CPU-only fallback (Windows 11 primary, Linux/macOS via pwsh in CPU mode; pre-release, vibe-coded for personal use) | [`PBNZ/watch-local`](https://github.com/PBNZ/watch-local) |
 | `repokit` | Scaffold standard-compliant repos (`/new-repo`) and apply the RepoKit repo standard while you work | [`PBNZ/repo-kit`](https://github.com/PBNZ/repo-kit) |
 | `newton` | Reasoning and sparring partner mode — honest pushback, current-sources research, reuse-before-rebuild checks | [`PBNZ/newton-skill`](https://github.com/PBNZ/newton-skill) |
 
@@ -35,9 +35,10 @@ Install:
 /plugin install newton@pbnz-skills
 ```
 
-Note `watch-local` has hard prerequisites (Windows 11, NVIDIA GPU, Docker
-Desktop with WSL2 + GPU) — read [its README](https://github.com/PBNZ/watch-local)
-before installing.
+Note `watch-local` requires Docker (Desktop with WSL2 on Windows); an
+NVIDIA GPU is optional — auto-detected and used for NVDEC decode + CUDA
+whisper when present, CPU-only mode otherwise. Read
+[its README](https://github.com/PBNZ/watch-local) before installing.
 
 ## Repository state
 

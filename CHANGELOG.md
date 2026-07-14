@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.6.1] — 2026-07-13
+
+### Changed
+
+- `watch-local` listing updated for the plugin's `v0.4.0-rc.1` release: the NVIDIA GPU is no
+  longer a hard prerequisite. The description and README now state the detect-and-adapt
+  behavior — NVDEC decode + CUDA whisper on a detected NVIDIA GPU, fully working CPU-only mode
+  (int8) otherwise; Windows 11 primary, Linux/macOS via PowerShell 7 in CPU mode (less tested).
+
 ## [0.6.0] — 2026-07-06
 
 ### Added
