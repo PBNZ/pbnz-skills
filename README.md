@@ -22,7 +22,7 @@ those install paths working.
 
 | Plugin | What it does | Canonical home |
 |--------|--------------|----------------|
-| `watch-local` | Give Claude a video input — `/watch` downloads, extracts frames, and transcribes fully locally via Docker; auto-detects your NVIDIA GPU (NVDEC decode + CUDA whisper) with CPU-only fallback (Windows 11 primary, Linux/macOS via pwsh in CPU mode; pre-release, vibe-coded for personal use) | [`PBNZ/watch-local`](https://github.com/PBNZ/watch-local) |
+| `watch-local` | Give Claude a video input — `/watch` downloads, extracts frames, and transcribes fully locally on a self-provisioned portable runtime (no Docker, nothing installed system-wide); auto-detects your NVIDIA GPU (NVDEC decode + CUDA whisper) with CPU-only fallback (Windows 11 primary, Linux/macOS via pwsh in CPU mode; pre-release, vibe-coded for personal use) | [`PBNZ/watch-local`](https://github.com/PBNZ/watch-local) |
 | `repokit` | Scaffold standard-compliant repos (`/new-repo`) and apply the RepoKit repo standard while you work | [`PBNZ/repo-kit`](https://github.com/PBNZ/repo-kit) |
 | `newton` | Reasoning and sparring partner mode — honest pushback, current-sources research, reuse-before-rebuild checks | [`PBNZ/newton-skill`](https://github.com/PBNZ/newton-skill) |
 
@@ -35,10 +35,14 @@ Install:
 /plugin install newton@pbnz-skills
 ```
 
-Note `watch-local` requires Docker (Desktop with WSL2 on Windows); an
-NVIDIA GPU is optional — auto-detected and used for NVDEC decode + CUDA
-whisper when present, CPU-only mode otherwise. Read
-[its README](https://github.com/PBNZ/watch-local) before installing.
+Note `watch-local` (0.5.0-rc.1+) no longer uses Docker: setup downloads
+pinned portable tools (yt-dlp, ffmpeg, deno, Python + faster-whisper) into
+its own state folder — no admin rights, nothing on system PATH, and
+deleting that one folder removes every trace. An NVIDIA GPU is optional —
+auto-detected and used for NVDEC decode + CUDA whisper when present,
+CPU-only mode otherwise. On Linux/macOS, PowerShell 7 (`pwsh`) is the one
+prerequisite. Read [its README](https://github.com/PBNZ/watch-local)
+before installing.
 
 ## Repository state
 

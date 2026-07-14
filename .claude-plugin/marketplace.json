@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "A personal collection of Agent Skills for Claude Code, Claude.ai, the Claude API, and other Agent-Skills-compatible tools.",
-    "version": "0.6.1"
+    "version": "0.6.2"
   },
   "plugins": [
     {
@@ -16,7 +16,7 @@
         "url": "https://github.com/PBNZ/watch-local.git",
         "path": "plugins/watch-local"
       },
-      "description": "Give Claude a video input — fully local. /watch downloads, extracts frames, and transcribes via Docker — NVDEC decode + CUDA whisper on a detected NVIDIA GPU, CPU-only mode otherwise. No cloud APIs. Windows 11 primary; Linux/macOS via pwsh (CPU mode, less tested). Canonical home: PBNZ/watch-local.",
+      "description": "Give Claude a video input — fully local. /watch downloads, extracts frames, and transcribes on a self-provisioned portable runtime (no Docker, no system installs; delete one folder to remove everything) — NVDEC decode + CUDA whisper on a detected NVIDIA GPU, CPU-only mode otherwise. No cloud APIs. Windows 11 primary; Linux/macOS via pwsh (CPU mode, less tested). Canonical home: PBNZ/watch-local.",
       "category": "productivity"
     },
     {

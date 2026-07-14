@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.6.2] — 2026-07-14
+
+### Changed
+
+- `watch-local` listing updated for the plugin's `v0.5.0-rc.1` release: **Docker is no longer
+  used or required.** The plugin now provisions its own portable runtime (pinned, hash-verified
+  yt-dlp, ffmpeg, deno, and Python + faster-whisper) inside its state folder — no admin rights,
+  nothing installed system-wide, and deleting that one folder removes every trace. GPU behavior
+  is unchanged (NVDEC decode + CUDA whisper on a detected NVIDIA GPU, CPU-only mode otherwise).
+  The README and manifest description now say so, and the install note points out that
+  PowerShell 7 (`pwsh`) is the sole prerequisite on Linux/macOS.
+
 ## [0.6.1] — 2026-07-13
 
 ### Changed
